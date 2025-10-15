@@ -1,5 +1,6 @@
 package dogapi;
 
+import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -26,8 +27,10 @@ public class DogApiBreedFetcher implements BreedFetcher {
     @Override
     public List<String> getSubBreeds(String breed) throws BreedNotFoundException {
         List<String> subBreeds = new ArrayList<>();
+        HttpUrl url = HttpUrl.parse("https://dog.ceo/api/breed/" + breed + "/list");
+        assert url != null;
         Request request = new Request.Builder()
-                .url("https://dog.ceo/api/breed/hound/list")
+                .url(url)
                 .build();
 
         try (Response response = client.newCall(request).execute()) {
