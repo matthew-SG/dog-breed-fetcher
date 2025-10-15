@@ -8,7 +8,7 @@ import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class DogApiBreedFetcherTest {
+class  DogApiBreedFetcherTest {
 
     @Test
     void testValidBreedReturnsSubBreeds() throws BreedFetcher.BreedNotFoundException {
